@@ -1,13 +1,13 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 setclipboard("https://gateway.platoboost.com/l/24151/da4f105b")
 local Window = Rayfield:CreateWindow({
-   Name = "Durk X 0.3",
+   Name = "Durk X 1.0 Release",
    LoadingTitle = "Thx For use",
    LoadingSubtitle = "by gsuk",
    ConfigurationSaving = {
       Enabled = true,
       FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Durkhubfile1"
+      FileName = "Durk Hub"
    },
    Discord = {
       Enabled = false,
@@ -16,14 +16,159 @@ local Window = Rayfield:CreateWindow({
    },
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
-      Title = "Durky X Key System",
-      Subtitle = "Trial Key for:6 Days on Discord",
+      Title = "Durk X",
+      Subtitle = "Key System",
       Note = "Copy key system from clipboard",
-      FileName = "Durkhubfile2", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"https://pastebin.com/raw/hiprtnku", "Trial:Tuesday_to_FridayKey"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"https://pastebin.com/raw/hiprtnku"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
+})
+local Tab = Window:CreateTab("Client", 4483362458) -- Title, Image
+
+local Slider = Tab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {16, 750},
+   Increment = 16,
+   Suffix = "Speed",
+   CurrentValue = 10,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+       -- Get the local player's character
+       local character = game.Players.LocalPlayer.Character
+       if character then
+           -- Get the Humanoid object
+           local humanoid = character:FindFirstChild("Humanoid")
+           if humanoid then
+               -- Set the walk speed to the slider value
+               humanoid.WalkSpeed = Value
+           end
+       end
+   end,
+})
+
+local Toggle = Tab:CreateToggle({
+   Name = "Anti AFK",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+       if Value then
+           -- Ativado
+           while Value do
+               -- Clique na tecla "R" a cada 18 minutos
+               wait(18 * 60) -- 18 minutos em segundos
+               game:GetService("UserInputService"):KeyPress(Enum.KeyCode.R)
+           end
+       end
+       print("")            Rayfield:Notify({
+   Title = "Anti-Afk Start",
+   Content = "Clicking (R) after 18Minutes",
+   Duration = 6.5,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+   end,
+})
+
+local Input = Tab:CreateInput({
+   Name = "Fly Keybine [BETA]",
+   PlaceholderText = "Input you keybine",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+       -- The function that takes place when the input is changed
+       -- The variable (Text) is a string for the value in the text box
+       local key = Enum.KeyCode[Text:upper()] -- Convert the input text to a KeyCode
+       if key then
+           game:GetService("UserInputService").InputBegan:Connect(function(input)
+               if input.KeyCode == key then
+                   -- Ativado
+                   local humanoid = game.Players.LocalPlayer.Character.Humanoid
+                   humanoid.WalkSpeed = 16
+                   humanoid.JumpPower = 50
+                   while true do
+                       humanoid.Velocity = Vector3.new(0, 0.5, 0) -- Nadar
+                       wait()
+                   end
+               end
+           end)
+       end
+   end,
+})
+
+local Section = Tab:CreateSection("Blox Fruits Player")
+
+ local Slider = Tab:CreateSlider({
+    Name = "WalkSpeed",
+    Range = {45, 300},
+    Increment = 1,
+    Suffix = "Speed",
+    CurrentValue = 45,
+    Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+     game.Players.LocalPlayer.Character:SetAttribute("SpeedMultiplier", Value)
+    end,
+ })
+
+ local Slider = Tab:CreateSlider({
+    Name = "Dash length",
+    Range = {10, 1000},
+    Increment = 1,
+    Suffix = "Length",
+    CurrentValue = 10,
+    Flag = "Slider2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+     game.Players.LocalPlayer.Character:SetAttribute("DashLength", Value)
+    end,
+ })
+
+local Section = Tab:CreateSection("Aimbot Player")
+
+local Toggle = Tab:CreateToggle({
+   Name = "Aimbot Beta",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+       if Value then
+           -- Ativado
+           while Value do
+               -- Encontre o humanoid mais próximo ao humanoid local
+               local closestHumanoid = nil
+               local closestDistance = math.huge
+               for _, player in pairs(game.Players:GetPlayers()) do
+                   if player ~= game.Players.LocalPlayer and player.Character and player.Character:FindFirstChild("Humanoid") then
+                       local distance = (player.Character.Humanoid.RootPart.Position - game.Players.LocalPlayer.Character.Humanoid.RootPart.Position).magnitude
+                       if distance < closestDistance then
+                           closestHumanoid = player.Character.Humanoid
+                           closestDistance = distance
+                       end
+                   end
+               end
+
+               -- Verificar se o humanoid mais próximo está no mesmo time que o humanoid local
+               if closestHumanoid and closestHumanoid.Team ~= game.Players.LocalPlayer.Character.Humanoid.Team then
+                   -- Verificar se há uma parede na frente do humanoid mais próximo
+                   local ray = Ray.new(closestHumanoid.RootPart.Position, (closestHumanoid.RootPart.Position - game.Players.LocalPlayer.Character.Humanoid.RootPart.Position).unit * 5)
+                   local hit = workspace:FindPartOnRay(ray)
+                   if hit and hit:IsA("BasePart") then
+                       -- Há uma parede na frente, não mirar no humanoid
+                       wait(0.0006)
+                   else
+                       -- Mirar no humanoid mais próximo
+                       game.Workspace.Camera.CFrame = CFrame.new(game.Workspace.Camera.CFrame.Position, closestHumanoid.RootPart.Position)
+                   end
+               end
+               wait(0.0006)
+           end
+       end
+   end,
 })
 
 local Tab = Window:CreateTab("Blox Fruit", 4483362458) -- Title, Image
