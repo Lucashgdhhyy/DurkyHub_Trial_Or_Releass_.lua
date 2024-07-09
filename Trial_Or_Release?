@@ -1,0 +1,78 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+setclipboard("https://gateway.platoboost.com/l/24151/da4f105b")
+local Window = Rayfield:CreateWindow({
+   Name = "Durk X 0.3",
+   LoadingTitle = "Thx For use",
+   LoadingSubtitle = "by gsuk",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Durkhubfile1"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Durky X Key System",
+      Subtitle = "Trial Key for:6 Days on Discord",
+      Note = "Copy key system from clipboard",
+      FileName = "Durkhubfile2", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = true, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"https://pastebin.com/raw/hiprtnku", "Trial:Tuesday_to_FridayKey"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local Tab = Window:CreateTab("Blox Fruit", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "W-Azure",
+   Callback = function()   
+getgenv().ForceUseSilentAimDashModifier = true --Force turn on silent aim , if error then executor problem
+getgenv().ForceUseWalkSpeedModifier = true --Force turn on Walk Speed Modifier , if error then executor problem
+
+ loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "Redz Hub",
+   Callback = function()        loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Tab = Window:CreateTab("Jailbreak", 4483362458) -- Title, Image
+
+local Button = Tab:CreateButton({
+   Name = "Block",
+   Callback = function()       
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BloxiYT/Diamond/main/JailBreak"))()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Tab = Window:CreateTab("Gym League", 4483362458) -- Title, Image
+local Button = Tab:CreateButton({
+   Name = "RYX",
+   Callback = function()       --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://ryk.bloxteam.com/loader.lua"))()
+   end,
+})
+local Tab = Window:CreateTab("The Mimic", 4483362458) -- Title, Image
+local Button = Tab:CreateButton({
+   Name = "Ktoll",
+   Callback = function()       --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet('https://raw.githubusercontent.com/KTollT/KTollT/main/README.md'))()
+
+   end,
+})
