@@ -35,7 +35,10 @@ end
 	end    
 })
 
-Tab:AddLabel("Blox Fruits Players")
+local Section = Tab:AddSection({
+	Name = "Blox Fruits"
+})
+
 
 Tab:AddSlider({
 	Name = "WalkSpeed",
