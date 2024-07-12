@@ -1,13 +1,13 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Durk|Script Unv Hub V1.5 New UI", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
+local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V1.5 New UI", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
 local Tab = Window:MakeTab({
-	Name = "Client",
+	Name = "Local Client",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
 Tab:AddToggle({
-	Name = "Anti-AFK",
+	Name = "Anti-AFK Beta",
 	Default = false,
 	Callback = function(Value)  if Value then
            -- Ativado
@@ -21,50 +21,16 @@ Tab:AddToggle({
 	end    
 })
 
-Tab:AddToggle({
-	Name = "Anti Ban Wave",
-	Default = false,
+Tab:AddTextbox({
+	Name = "Beta Version Text:",
+	Default = "Input Key Here",
+	TextDisappear = true,
 	Callback = function(Value)
-local timer = 0 print("test")
-while true do
-    wait(30 * 60) -- wait 30 minutes
-    timer = timer + 1
-    Toggle:Callback(not Toggle.CurrentValue) -- toggle the value
-end
+		if Value == "Beta_Admin" then
+			OrionLib:Destroy()
+		end
 		print(Value)
-	end    
-})
-
-local Section = Tab:AddSection({
-	Name = "Blox Fruits"
-})
-
-
-Tab:AddSlider({
-	Name = "WalkSpeed",
-	Min = 5,
-	Max = 150,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Speed",
-	Callback = function(Value)              game.Players.LocalPlayer.Character:SetAttribute("SpeedMultiplier", Value)
-		print(Value)
-	end    
-})
-
-Tab:AddSlider({
-	Name = "Dash",
-	Min = 0,
-	Max = 500,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Dash Power",
-	Callback = function(Value)
- game.Players.LocalPlayer.Character:SetAttribute("DashLength", Value)
-		print(Value)
-	end    
+	end	  
 })
 
 local Tab = Window:MakeTab({
@@ -92,6 +58,69 @@ getgenv().ForceUseWalkSpeedModifier = true --Force turn on Walk Speed Modifier ,
 })
 
 local Tab = Window:MakeTab({
+	Name = "Flee The Facility",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Op Hub!",
+	Callback = function()
+      		print("button pressed")   loadstring(game:HttpGet('https://rentry.co/9uqkr/raw'))()
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "ftf",
+	Callback = function()
+      		print("button pressed")        
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Drifty96/ftfgui/main/ftfgui", true))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Blood Ball",
+	Callback = function()
+      		print("button pressed")       local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+
+local w = library:CreateWindow("esp all") -- Creates the window
+
+local b = w:CreateFolder("main") -- Creates the folder(U will put here your buttons,etc)
+
+b:Label("main",{
+    TextSize = 25; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
+
+b:Button("esp all",function()
+       -- ESP Function
+    function ESP()
+        for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+
+                -- Create Box
+                local Box = Instance.new("BoxHandleAdornment")
+                Box.Size = v.Character.HumanoidRootPart.Size + Vector3.new(0.1, 0.1, 0.1)
+                Box.Color3 = Color3.new(0, 0, 0)
+                Box.AlwaysOnTop = true
+                Box.ZIndex = 5
+                Box.Adornee = v.Character.HumanoidRootPart
+                Box.Parent = v.Character.HumanoidRootPart
+            end
+        end
+    end
+
+    -- Call ESP Function
+    ESP()
+end)
+  	end    
+})
+
+
+local Tab = Window:MakeTab({
 	Name = "Ucn Test",
 	Icon = "rbxassetid://4483362458",
 	PremiumOnly = false
@@ -109,3 +138,4 @@ Tab:AddButton({
   	end    
 })
 
+OrionLib:Init()
