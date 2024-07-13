@@ -14,7 +14,18 @@ Tab:AddButton({
 	Callback = function()
       		setclipboard("https://discord.gg/bbntkpr65B")
 
-
+Tab:AddButton({
+    Name = "Resetar",
+    Callback = function()
+        local character = game.Players.LocalPlayer.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                humanoid.Health = 0
+            end
+        end
+    end
+})
 
 Tab:AddTextbox({
 	Name = "Beta Version Text:",
