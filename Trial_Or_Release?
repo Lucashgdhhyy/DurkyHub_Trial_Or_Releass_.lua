@@ -13,6 +13,8 @@ Tab:AddButton({
 	Name = "Junte-se a comunidade Durk",
 	Callback = function()
       		setclipboard("https://discord.gg/bbntkpr65B")
+  	end    
+})
 
 Tab:AddButton({
     Name = "Resetar",
