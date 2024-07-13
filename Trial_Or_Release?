@@ -144,6 +144,36 @@ end)
   	end    
 })
 
+local Tab = Window:MakeTab({
+	Name = "Blade Ball",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Visualise",
+	Callback = function()
+      		print("button pressed")    
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/ab6906cda6641c69a5f3a6c0c2ad6d80.lua"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Bedol Hub",
+	Callback = function()
+      		print("button pressed")            
+_G.UI_Size = 200 -- config ui size
+loadstring(game:HttpGet("https://raw.githubusercontent.com/3345-c-a-t-s-u-s/-beta-/main/AutoParry.lua"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "FFJ",
+	Callback = function()
+      		print("button pressed")                     
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/autoparry.lua"))()
+  	end    
+})
 
 local Tab = Window:MakeTab({
 	Name = "Ucn Test",
