@@ -171,7 +171,7 @@ Tab:AddButton({
 	Name = "FFJ",
 	Callback = function()
       		print("button pressed")                     
-loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/autoparry.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/BladeBallV3.lua"))()
   	end    
 })
 
