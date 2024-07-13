@@ -1,25 +1,13 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V1.5 New UI", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
 local Tab = Window:MakeTab({
-	Name = "Local Client",
+	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 
-Tab:AddToggle({
-	Name = "Anti-AFK Beta",
-	Default = false,
-	Callback = function(Value)  if Value then
-           -- Ativado
-           while Value do
-               -- Clique na tecla "R" a cada 18 minutos
-               wait(18 * 60) -- 18 minutos em segundos
-               game:GetService("UserInputService"):KeyPress(Enum.KeyCode.R)
-           end
-       end
-		print(Value)
-	end    
-})
+Tab:AddParagraph("Progamadores e donos:","Durky,MC_Flaming")
+Tab:AddParagraph("Beta Testers:","MC_Flaming")
 
 Tab:AddTextbox({
 	Name = "Beta Version Text:",
