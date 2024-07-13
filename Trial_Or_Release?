@@ -56,6 +56,14 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
+	Name = "HoHo Hub V3",
+	Callback = function()
+      		print("button pressed")              _G.HohoVersion = "v3"
+loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+  	end    
+})
+
+Tab:AddButton({
 	Name = "Valk V2",
 	Callback = function()
       		print("button pressed")           loadstring(game:HttpGet("https://raw.githubusercontent.com/Scriptssz/Folder_Script/main/Valk_Hub"))()
