@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V1.7", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
+local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V1.9", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
 local Tab = Window:MakeTab({
 	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
@@ -173,6 +173,51 @@ Tab:AddButton({
       		print("button pressed")                     
 loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/BladeBallV3.lua"))()
   	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Natural Disaster",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+
+Tab:AddSlider({
+    Name = "Velocidade",
+    Min = 16,
+    Max = 150,
+    Default = 16,
+    Color = Color3.fromRGB(255, 165, 0), -- Cor laranja
+    Increment = 1,
+    ValueName = "Speed",
+    Callback = function(Value)
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            local diff = Value - 16
+            humanoid.WalkSpeed = humanoid.WalkSpeed + diff
+            print("Velocidade atual: " .. humanoid.WalkSpeed)
+        end
+    end
+})
+
+Tab:AddToggle({
+    Name = "God Mode [Beta]",
+    Default = false,
+    Callback = function(Value)
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            if Value then
+                humanoid.Health = 100
+            else
+                humanoid.Health = 50
+            end
+        end
+    end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Flee The Facility",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
 })
 
 local Tab = Window:MakeTab({
