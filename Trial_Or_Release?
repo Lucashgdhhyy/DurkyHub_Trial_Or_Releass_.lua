@@ -6,7 +6,8 @@ local Tab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddParagraph("Progamadores e donos:","Durky,MC_Flaming")
+Tab:AddParagraph("Donos:","Durky,MC_Flaming")
+Tab:AddParagraph("Progamadores:","Durky")
 Tab:AddParagraph("Beta Testers:","MC_Flaming")
 
 Tab:AddButton({
