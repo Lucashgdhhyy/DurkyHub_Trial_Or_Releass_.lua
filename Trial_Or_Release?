@@ -88,7 +88,7 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "Op Hub!",
+	Name = "Hub Recomendado",
 	Callback = function()
       		print("button pressed")   loadstring(game:HttpGet('https://rentry.co/9uqkr/raw'))()
   	end    
