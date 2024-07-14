@@ -56,6 +56,14 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
+	Name = "Ninja Hub",
+	Callback = function()
+      		print("button pressed")            loadstring(game:HttpGet("https://raw.githubusercontent.com/Xero2409/NinjaHub/main/ninjahub.lua"))()
+  	end    
+})
+
+
+Tab:AddButton({
 	Name = "HoHo Hub V3",
 	Callback = function()
       		print("button pressed")              _G.HohoVersion = "v3"
@@ -87,6 +95,19 @@ getgenv().ForceUseWalkSpeedModifier = true --Force turn on Walk Speed Modifier ,
 
  loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
 
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Legacy Tag Game",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Rex",
+	Callback = function()
+      		print("button pressed")          loadstring(game:HttpGet("https://raw.githubusercontent.com/Zer0ids/Qwerty/main/UntitledTag/NewScript.lua"))()
   	end    
 })
 
