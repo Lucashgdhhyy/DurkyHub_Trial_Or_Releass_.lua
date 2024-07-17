@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
-local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V2.1", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
+local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V2.2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
 local Tab = Window:MakeTab({
 	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
@@ -30,6 +30,7 @@ Tab:AddButton({
         end
     end
 })
+
 
 Tab:AddTextbox({
 	Name = "Beta Version Text:",
@@ -220,6 +221,26 @@ loadstring(game:HttpGet('https://gitfront.io/r/ReQiuYTPL/wFUydaK74uGx/hub/raw/Re
 })
 
 local Tab = Window:MakeTab({
+	Name = "Create a cart",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Durk Bug Magnect Free",
+	Callback = function()         OrionLib:MakeNotification({
+	Name = "Ativo!",
+	Content = "Este script e sem interface então precisa de uma notificação!",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+      		print("button pressed")      game.Players.LocalPlayer.PDF.TrackMagnetsOn.Value = true
+  	end    
+})
+
+
+
+local Tab = Window:MakeTab({
 	Name = "Ucn Test",
 	Icon = "rbxassetid://4483362458",
 	PremiumOnly = false
@@ -238,7 +259,7 @@ Tab:AddButton({
 })
 
 local Tab = Window:MakeTab({
-	Name = "Infiinity Yield",
+	Name = "Admin",
 	Icon = "rbxassetid://4483362458",
 	PremiumOnly = false
 })
@@ -249,6 +270,8 @@ Tab:AddButton({
       		print("button pressed")          loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
   	end    
 })
+
+
 
 
 OrionLib:Init()
