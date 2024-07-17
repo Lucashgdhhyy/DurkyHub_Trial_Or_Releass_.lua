@@ -1,3 +1,13 @@
+print("
+1 Permissão de Uso:
+Os usuários estão autorizados a utilizar este script Lua e postar vídeos relacionados. No entanto, qualquer versão modificada do script que não seja permitida pelos administradores será bloqueada.
+
+2 Postagem de Vídeos:
+`É permitido postar vídeos utilizando este script, desde que o link para o script seja fornecido sem o uso de encurtadores de URL.`
+
+3 :Comunidade do Discord:
+`Os usuários devem incluir o link para a comunidade do Discord a seguir: https://discord.gg/bbntkpr65B.")
+
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/shlexware/Orion/main/source")))()
 local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V2.2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
 local Tab = Window:MakeTab({
