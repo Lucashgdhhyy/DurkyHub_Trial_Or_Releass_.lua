@@ -1,19 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Troll Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
-	Name = "Durk Team",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-
-Tab:AddButton({
-	Name = "Durk Hub",
-	Callback = function()
-      		print("button pressed")    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucashgdhhyy/DurkyHub_Trial_Or_Releass_.lua/main/Trial_Or_Release%3F"))()
-  	end    
-})
-
-local Tab = Window:MakeTab({
 	Name = "Humanoid",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
