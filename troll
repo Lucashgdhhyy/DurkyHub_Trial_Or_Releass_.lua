@@ -1,0 +1,279 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Troll Hub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Tab = Window:MakeTab({
+	Name = "Durk Team",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Durk Hub",
+	Callback = function()
+      		print("button pressed")    loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucashgdhhyy/DurkyHub_Trial_Or_Releass_.lua/main/Trial_Or_Release%3F"))()
+  	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Humanoid",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- Variável para armazenar o estado do noclip
+local noclipEnabled = false
+
+-- Função para ativar/desativar o noclip
+local function toggleNoclip(enabled)
+    noclipEnabled = enabled
+end
+
+-- Função para monitorar e atualizar o noclip
+local function noclipLoop()
+    while true do
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+        
+        if humanoidRootPart then
+            local position = humanoidRootPart.Position
+            local radius = 10 -- Raio de detecção dos objetos próximos
+            
+            for _, part in ipairs(workspace:GetDescendants()) do
+                if part:IsA("BasePart") and (part.Position - position).magnitude <= radius then
+                    if noclipEnabled then
+                        part.CanCollide = false
+                    else
+                        part.CanCollide = true
+                    end
+                end
+            end
+        end
+        wait(0.1)
+    end
+end
+
+-- Iniciando a função de loop do noclip
+spawn(noclipLoop)
+
+Tab:AddToggle({
+    Name = "Noclip",
+    Default = false,
+    Callback = function(Value)
+        print(Value)
+        toggleNoclip(Value)
+    end    
+})
+
+
+
+-- Adicionando o slider
+Tab:AddSlider({
+    Name = "WalkSpeed",
+    Min = 16,
+    Max = 720,
+    Default = 5,
+    Color = Color3.fromRGB(255, 165, 0), -- Laranja
+    Increment = 1,
+    ValueName = "speed",
+    Callback = function(Value)
+        print(Value)
+        -- Mudando a velocidade do humanoid local
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            humanoid.WalkSpeed = Value
+        end
+    end    
+})
+
+-- Variável para armazenar o valor atual do JumpPower
+local currentJumpPower = 5
+
+-- Função para monitorar e atualizar o JumpPower
+local function monitorJumpPower()
+    while true do
+        local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid and humanoid.JumpPower ~= currentJumpPower then
+            humanoid.JumpPower = currentJumpPower
+        end
+        wait(0.1)
+    end
+end
+
+-- Iniciando a função de monitoramento do JumpPower
+spawn(monitorJumpPower)
+
+-- Adicionando o slider
+Tab:AddSlider({
+    Name = "JumpPower",
+    Min = 50,
+    Max = 720,
+    Default = 5,
+    Color = Color3.fromRGB(0, 255, 0), -- Verde
+    Increment = 1,
+    ValueName = "jump",
+    Callback = function(Value)
+        print(Value)
+        -- Atualizando o valor atual do JumpPower
+        currentJumpPower = Value
+    end    
+})
+
+-- Variável para armazenar o estado do fly
+local flyEnabled = false
+local flyBlock
+
+-- Função para ativar/desativar o fly
+local function toggleFly(enabled)
+    flyEnabled = enabled
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    
+    if enabled then
+        -- Criar o bloco de voo
+        flyBlock = Instance.new("Part")
+        flyBlock.Size = Vector3.new(5, 1, 5)
+        flyBlock.Anchored = true
+        flyBlock.Transparency = 1 -- Tornar o bloco invisível
+        flyBlock.CanCollide = false
+        flyBlock.Parent = workspace
+    else
+        -- Remover o bloco de voo
+        if flyBlock then
+            flyBlock:Destroy()
+            flyBlock = nil
+        end
+    end
+end
+
+-- Função para manter o fly ativo
+local function flyLoop()
+    while true do
+        if flyEnabled and flyBlock then
+            local player = game.Players.LocalPlayer
+            local character = player.Character
+            local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+            local humanoid = character:FindFirstChildOfClass("Humanoid")
+            
+            if humanoidRootPart and humanoid then
+                if humanoid.MoveDirection.Magnitude == 0 then
+                    -- Se o jogador estiver parado, o bloco desce quatro vezes mais rápido
+                    flyBlock.Position = flyBlock.Position - Vector3.new(0, 0.4, 0)
+                else
+                    -- Se o jogador estiver se movendo, o bloco se move horizontalmente junto com ele
+                    flyBlock.Position = humanoidRootPart.Position - Vector3.new(0, 3, 0)
+                end
+                
+                -- Se o jogador pular, o bloco sobe
+                if humanoid:GetState() == Enum.HumanoidStateType.Jumping then
+                    flyBlock.Position = humanoidRootPart.Position - Vector3.new(0, 3, 0)
+                end
+                
+                -- Teleportando o jogador para cima do bloco
+                humanoidRootPart.CFrame = flyBlock.CFrame * CFrame.new(0, 3, 0)
+            end
+        end
+        wait(0.1)
+    end
+end
+
+-- Iniciando a função de loop do fly
+spawn(flyLoop)
+
+-- Adicionando o toggle
+Tab:AddToggle({
+    Name = "Fly Beta",
+    Default = false,
+    Callback = function(Value)
+        print(Value)
+        toggleFly(Value)
+    end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Client",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+-- Tabela para armazenar os blocos gerados
+local spawnedBlocks = {}
+
+-- Função para criar um bloco e teleportar o jogador
+local function createBlock(size)
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+    
+    if humanoidRootPart then
+        local block = Instance.new("Part")
+        block.Size = size
+        block.Anchored = true
+        block.Position = humanoidRootPart.Position
+        block.Parent = workspace
+        
+        -- Adicionando o bloco à tabela
+        table.insert(spawnedBlocks, block)
+        
+        -- Teleportando o jogador para cima do bloco
+        humanoidRootPart.CFrame = block.CFrame * CFrame.new(0, size.Y / 2 + 2, 0)
+    end
+end
+
+-- Função para remover todos os blocos gerados
+local function removeBlocks()
+    for _, block in ipairs(spawnedBlocks) do
+        if block and block.Parent then
+            block:Destroy()
+        end
+    end
+    -- Limpar a tabela após remover os blocos
+    spawnedBlocks = {}
+end
+
+-- Variável para armazenar o tamanho do bloco selecionado
+local selectedBlockSize = Vector3.new(0, 0, 0)
+
+-- Adicionando o dropdown
+Tab:AddDropdown({
+    Name = "Block",
+    Default = "Nothing",
+    Options = {"Nothing", "Small", "Medium", "High"},
+    Callback = function(Value)
+        print(Value)
+        if Value == "Small" then
+            selectedBlockSize = Vector3.new(2, 2, 2)
+        elseif Value == "Medium" then
+            selectedBlockSize = Vector3.new(4, 4, 4)
+        elseif Value == "High" then
+            selectedBlockSize = Vector3.new(6, 6, 6)
+        else
+            selectedBlockSize = Vector3.new(0, 0, 0)
+        end
+    end    
+})
+
+-- Adicionando o botão para spawnar blocos
+Tab:AddButton({
+    Name = "Block Spawn",
+    Callback = function()
+        print("button pressed")
+        if selectedBlockSize ~= Vector3.new(0, 0, 0) then
+            createBlock(selectedBlockSize)
+        end
+    end    
+})
+
+
+-- Adicionando o botão para remover blocos
+Tab:AddButton({
+    Name = "Remove Blocks",
+    Callback = function()
+        print("button pressed")
+        removeBlocks()
+    end    
+})
+
+OrionLib:Init()
+
