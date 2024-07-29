@@ -1,19 +1,10 @@
-OrionLib:Destroy()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Durk | Unv Hub V2.2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", IntroText = "Durk Loading"})
 local Tab = Window:MakeTab({
 	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
-})
-
-Tab:AddButton({
-	Name = "Troll Hub",
-	Callback = function()
-      		print("button pressed")                                            OrionLib:Destroy()                loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucashgdhhyy/DurkyHub_Trial_Or_Releass_.lua/main/troll"))
-  	end    
-})
-                              
+})                            
 
 Tab:AddParagraph("Donos:","Durky,MC_Flaming")
 Tab:AddParagraph("Progamadores:","Durky")
@@ -226,11 +217,24 @@ Tab:AddButton({
 loadstring(game:HttpGet('https://gitfront.io/r/ReQiuYTPL/wFUydaK74uGx/hub/raw/ReQiuYTPLHub.lua'))()
   	end    
 })
+local Tab = Window:MakeTab({
+	Name = "Ucn Test",
+	Icon = "rbxassetid://4483362458",
+	PremiumOnly = false
+})
+
 
 local Tab = Window:MakeTab({
 	Name = "Ucn Test",
 	Icon = "rbxassetid://4483362458",
 	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Troll Hub",
+	Callback = function()
+      		print("button pressed")                                            OrionLib:Destroy()                loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucashgdhhyy/DurkyHub_Trial_Or_Releass_.lua/main/troll"))
+  	end    
 })
 
 Tab:AddButton({
