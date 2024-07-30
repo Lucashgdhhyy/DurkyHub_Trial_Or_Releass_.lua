@@ -205,6 +205,20 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/
 })
 
 local Tab = Window:MakeTab({
+	Name = "Doors",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Blacking Bob Hub",
+	Callback = function()
+      		print("button pressed")         
+loadstring(game:HttpGet(('https://pastebin.com/raw/R8QMbhzv')))()
+  	end    
+})
+
+local Tab = Window:MakeTab({
 	Name = "Adopt-Me",
 	Icon = "rbxassetid://4483362458",
 	PremiumOnly = false
