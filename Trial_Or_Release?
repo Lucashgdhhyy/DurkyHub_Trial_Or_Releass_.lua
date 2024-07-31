@@ -256,7 +256,7 @@ local Tab = Window:MakeTab({
 Tab:AddButton({
 	Name = "Troll Hub",
 	Callback = function()
-      		print("button pressed")                                            OrionLib:Destroy()                loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucashgdhhyy/DurkyHub_Trial_Or_Releass_.lua/main/troll"))
+      		print("button pressed")                                                loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucashgdhhyy/DurkyHub_Trial_Or_Releass_.lua/main/troll"))
   	end    
 })
 
