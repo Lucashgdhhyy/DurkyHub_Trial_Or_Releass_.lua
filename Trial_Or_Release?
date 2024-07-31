@@ -231,6 +231,21 @@ Tab:AddButton({
 loadstring(game:HttpGet('https://gitfront.io/r/ReQiuYTPL/wFUydaK74uGx/hub/raw/ReQiuYTPLHub.lua'))()
   	end    
 })
+
+local Tab = Window:MakeTab({
+	Name = "Evade",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Tbao",
+	Callback = function()
+      		print("button pressed")                  
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade"))()
+  	end    
+})
+
 local Tab = Window:MakeTab({
 	Name = "Durk team",
 	Icon = "rbxassetid://4483362458",
