@@ -234,7 +234,7 @@ loadstring(game:HttpGet('https://gitfront.io/r/ReQiuYTPL/wFUydaK74uGx/hub/raw/Re
 
 local Tab = Window:MakeTab({
 	Name = "Evade",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://4483362458",
 	PremiumOnly = false
 })
 
